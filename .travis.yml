@@ -16,3 +16,4 @@ before_script:
 
 script:
   - curl http://localhost:9200/_cluster/health?pretty
+  - bundle exec rspec
