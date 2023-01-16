@@ -6,6 +6,7 @@ services:
   - postgresql
   - elasticsearch
 
+cache: bundler
 before_install:
   - sleep 10
 
