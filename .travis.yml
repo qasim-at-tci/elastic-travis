@@ -11,8 +11,8 @@ before_install:
 
 before_script:
   - timeout 30 sh -c 'until nc -z $0 $1; do sleep 1; done' localhost 9200
-  - rails db:create
-  - rails db:migrate
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate
 
 script:
   - curl http://localhost:9200/_cluster/health?pretty
