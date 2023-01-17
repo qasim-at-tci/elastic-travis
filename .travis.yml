@@ -15,5 +15,6 @@ before_script:
   - bundle exec rails db:migrate
 
 script:
+  - docker ps
   - curl http://localhost:9200/_cluster/health?pretty
   - bundle exec rspec
