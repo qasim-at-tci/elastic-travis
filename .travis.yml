@@ -3,11 +3,11 @@ addons:
   postgresql: "9.5"
 services:
   - postgresql
-  - elasticsearch
 
 cache: bundler
 before_install:
-  - sleep 10
+  - docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.17.7
+  - sleep 5
 
 before_script:
   - timeout 30 sh -c 'until nc -z $0 $1; do sleep 1; done' localhost 9200
